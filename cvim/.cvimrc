@@ -1,0 +1,131 @@
+"------------------
+" Settings
+"------------------
+let searchlimit = 45
+let scrollstep = 100
+
+let locale = "ru" " Current choices are 'jp' and 'uk'. This allows cVim to use sites like google.co.uk
+                  " or google.co.jp to search rather than google.com. Support is currently limited.
+                  " Let me know if you need a different locale for one of the completion/search engines
+
+" let hintcharacters = "abc123" " set the default characters to be used in link hint mode default "asdfgqwertzxcvb"
+
+let searchengine dogpile = "http://www.dogpile.com/search/web?q=%s" " If you leave out the '%s' at the end of the URL,
+                                                                    " your query will be appended to the link.
+                                                                    " Otherwise, your query will replace the '%s'.
+
+" This will do the same thing as above, except typing ':tabnew withbase' into to command bar
+" without any search parameters will open 'http://www.dogpile.com'
+let searchengine withbase = ["http://www.dogpile.com", "http://www.dogpile.com/search/web?q=%s"]
+
+"alias ':g' to ':tabnew google'
+command g tabnew google
+" alias ':y' to ':tabnew yandex.ru'
+command y tabnew yandex.ru
+
+let completionengines = ["google", "youtube", "wikipedia"]
+
+let searchalias g = "google" " Create a shortcut for search engines.
+                             " For example, typing ':tabnew g example'
+                             " would act the same way as ':tabnew google example'
+
+" Open all of these in a tab with `gna` or open one of these with <N>goa where <N>
+let qmark a = ["http://www.reddit.com", "http://www.google.com", "http://twitter.com"]
+
+" blacklists prefixed by '@' act as a whitelist
+let blacklists = ["https://mail.google.com/*", "*://mail.google.com/*", "@https://mail.google.com/mail/*"]
+
+"------------------
+" Settings boolean
+"------------------
+set noautofocus              " The opposite of autofocus; this setting stops
+                              " sites from focusing on an input box when they 
+                              " load ---------------------------------------------------default true
+set typelinkhints
+set scalehints               " animate link hints as they appear------------------------default false  
+set linkanimations           " show fade effect when link hints open and close ---------default false  
+set nodefaultnewtabpage      " use the default chrome://newtab page instead of a 
+                              " blank page ---------------------------------------------default false  
+set autohidecursor           " hide the mouse cursor when scrolling (useful 
+                              " for Linux, which doesn’t auto-hide the cursor 
+                              " on keydown) --------------------------------------------default false  
+set smoothscroll             " use smooth scrolling ------------------------------------default false  
+set sortlinkhints            " Sort link hint lettering by the link’s distance 
+                              "from the top-left corner of the page --------------------default false  
+set completeonopen           " Automatically show a list of command completions 
+                              " when the command bar is opened -------------------------default false
+
+
+"set cncpcompletion           " use  to cycle through completion results (requires 
+                              " you to set the nextCompletionResult keybinding in 
+                              " the chrome://extensions page (bottom right) ------------default false  
+"set regexp                  " use regexp in find mode ---------------------------------default true  
+"set insertmappings          " use insert mappings to navigate the cursor in 
+                              " text boxes (see bindings below) ------------------------default true  
+"set smartcase               " case-insensitive find mode searches except when input 
+                              " contains a capital letter ------------------------------default true  
+"set incsearch               " begin auto-highlighting find mode matches when input 
+                              " length is greater thant two characters -----------------default true  
+"set dimhintcharacters       " dim letter matches in hint characters rather than 
+                              " remove them from the hint ------------------------------default true  
+"set ignorecase              " ignore search case in find mode -------------------------default true  
+"set hud                     " show the heads-up-display -------------------------------default true  
+"set nonumerichints          " use numbers for link hints instead of a set of 
+                              " characters ---------------------------------------------default false  
+"set notypelinkhints         " (numerichints required) type text in the link to 
+                              " narrow down numeric hints ------------------------------default false  
+
+"------------------
+" Mappings
+"------------------
+let mapleader = ","
+map <Leader>r reloadTabUncached
+map <Leader>x :restore<Space>
+" You can use <Space>, which is interpreted as a
+" literal " " character, to enter buffer completion mode
+map gb :buffer<Space>
+
+" Toggle the current HUD display value
+map <C-h> :set hud!<CR>
+
+" Switch between alphabetical hint characters and numeric hints
+map <C-i> :set numerichints!<CR>
+map <C-u> rootFrame
+map <M-h> previousTab
+
+"------------------
+" Navigation
+"------------------
+map <C-a> beginningOfLine
+map <C-j> backwardWord
+map <C-m> forwardLine
+
+"-------------------
+" Programing
+"-------------------
+" Create a variable that can be used/referenced in the command bar
+let @@reddit_prog = 'http://www.reddit.com/r/programming'
+let @@top_all = 'top?sort=top&t=all'
+let @@top_day = 'top?sort=top&t=day'
+
+" TA binding opens 'http://www.reddit.com/r/programming/top?sort=top&t=all' in a new tab
+map TA :tabnew @@reddit_prog/@@top_all<CR>
+map TD :tabnew @@reddit_prog/@@top_day<CR>
+
+" Use paste buffer in wiki 
+unmap W
+map W :tabnew wikipedia @"<CR>
+
+" Code blocks (see below for more info)
+getIP() -> {{
+httpRequest({url: 'http://api.ipify.org/?format=json', json: true},
+            function(res) { Status.setMessage('IP: ' + res.ip); });
+}}
+" Displays your public IP address in the status bar
+map ci :call getIP<CR>
+
+"----------------------------------
+" Autoloading config file .cvimrc
+"----------------------------------
+let configpath='/patch/your/cvim/.cvimrc'
+set localconfig
