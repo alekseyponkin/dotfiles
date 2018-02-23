@@ -41,11 +41,13 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+local them_name = "zenburn"
+beautiful.init(awful.util.getdir("config") .. "/themes/" .. them_name .. "/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "xterm"
-editor = os.getenv("EDITOR") or "nano"
+terminal = "xfce4-terminal"
+brosers = "chromium"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -101,8 +103,13 @@ myawesomemenu = {
    { "quit", function() awesome.quit() end}
 }
 
+myinternetmenu = {
+	{ "Chromium", "chromium", beautiful.application_chromium }
+}
+
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
+				    { "internet", myinternetmenu },
+                                    { "open terminal", terminal, beautiful.application_terminal },
                                   }
                         })
 
@@ -118,7 +125,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = wibox.widget.textclock("%H:%M")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -183,7 +190,8 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "terminal", "internet", "develop", "media", "chat", "6", "7", "8", "9" }, s, 
+    {awful.layout.layouts[3], awful.layout.layouts[1], awful.layout.layouts[3]})
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -481,7 +489,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
