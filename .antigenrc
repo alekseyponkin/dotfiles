@@ -1,0 +1,35 @@
+# Check if antigen is installed
+if [[ ! -f ~/antigen.zsh ]]; then
+   echo 'Installing antigen...'
+   curl -L git.io/antigen > $HOME/antigen.zsh
+fi
+
+source $HOME/antigen.zsh
+    
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    
+    # Bundles from the default repo (robbyrussell's oh-my-zsh)
+    git
+    
+    # Toggles sudo before the current/previous command 
+    sudo 
+    
+    # Syntax highlighting bundle.
+    zsh-users/zsh-syntax-highlighting
+
+    # Fish-like auto suggestions
+    zsh-users/zsh-autosuggestions
+
+    # Extra zsh completions
+    zsh-users/zsh-completions
+
+EOBUNDLES
+
+# Load the theme.
+antigen theme bhilburn/powerlevel9k
+
+# Tell antigen that you're done
+antigen apply
