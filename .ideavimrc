@@ -1,3 +1,47 @@
+"-------------------------------------------------
+"    Emulating plugins 
+"-------------------------------------------------
+set surround
+
+"-------------------------------------------------
+"    Main settings
+"-------------------------------------------------
+set hlsearch
+set viminfo
+set scrolloff=3
+set incsearch
+set ignorecase
+set smartcase
+set numbers
+set showmode
+set history=1000
+
+"-------------------------------------------------
+" Navigation
+"-------------------------------------------------
+let mapleader = ","
 imap jj <Esc>
 map H ^
 map L $
+
+"-------------------------------------------------
+" Run/Debug action
+"-------------------------------------------------
+nnoremap <leader>r :action RunClass<cr>
+nnoremap <leader>R :action Run<cr>
+nnoremap <leader>d :action DebugClass<cr>
+nnoremap <leader>D :action Debug<cr>
+
+"-------------------------------------------------
+" g-Generate
+"-------------------------------------------------
+nnoremap <space>gt :action GenerateTestMethod<CR>
+nnoremap <space>gs :action GenerateSetUpMethod<CR>
+nnoremap <space>gG :action GenerateGetter<CR>
+nnoremap <space>gS :action GenerateSetter<CR>
+nnoremap <space>ga :action GenerateGetterAndSetter<CR>
+nnoremap <space>ge :action GenerateEquals<CR>
+nnoremap <space>gc :action GenerateConstructor<CR>
+nnoremap <space>G  :action Generate<CR>
+nnoremap <space>gi :action ImplementMethod<CR>
+nnoremap <space>go :action OverrideMethod<CR>
