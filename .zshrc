@@ -8,21 +8,18 @@ if [[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
 	git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 	chsh -s /bin/zsh
   fi
-# ------------------------------------------------
 
 # ------------------------------------------------
 # Include plugin manager - antigen
-#
 POWERLEVEL9K_MODE='awesome-fontconfig'
 source ~/.antigenrc
-# ------------------------------------------------
 
+# ------------------------------------------------
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
   export ZSH=$HOME/.oh-my-zsh
-
 
 # ------------------------------------------------
 #                    Themes
@@ -32,6 +29,7 @@ source ~/.antigenrc
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 
 #ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Set list of themes to load
 # Setting this variable when ZSH_THEME=random
@@ -42,12 +40,10 @@ source ~/.antigenrc
 
 # ------------------------------------------------
 #               Powerlevel9k settings
-#               
+# ------------------------------------------------
 #POWERLEVEL9K_MODE='nerdfont-complete'
 #POWERLEVEL9K_MODE='awesome-patched'
 #POWERLEVEL9K_MODE='awesome-fontconfig'
-
-#ZSH_THEME="powerlevel9k/powerlevel9k"
 
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
@@ -83,8 +79,11 @@ POWERLEVEL9K_SHOW_CHANGESET=true
 # Time
 POWERLEVEL9K_TIME_FORMAT="%D{%H:%M:%S}"
 POWERLEVEL9K_TIME_BACKGROUND='blue'
-# ------------------------------------------------
 
+# ------------------------------------------------
+#                  Autosuggest settings 
+# ------------------------------------------------
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=7'
 
 # ------------------------------------------------
 #                  ZSH settings 
@@ -126,16 +125,9 @@ HIST_STAMPS="yyyy-mm-dd"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-# ------------------------------------------------
 
-
-# ------------------------------------------------
-#               ZSH Options
-# ------------------------------------------------ 
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
-# ------------------------------------------------
-
 
 # ------------------------------------------------
 #                  Plugins
@@ -152,13 +144,10 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-# ------------------------------------------------
-
 
 # ------------------------------------------------
 #             User configuration
 # ------------------------------------------------
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -188,6 +177,7 @@ source $ZSH/oh-my-zsh.sh
 
 # ------------------------------------------------
 #                  Archivers
+# ------------------------------------------------
 compress () {
   if [ $1 ] ; then
     case $1 in
@@ -225,5 +215,3 @@ extract () {
         echo "'$1' is not a valid file"
     fi
 }
-# ------------------------------------------------
-
