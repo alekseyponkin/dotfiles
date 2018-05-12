@@ -13,6 +13,7 @@ set incsearch
 set ignorecase
 set smartcase
 set numbers
+set relativenumber
 set showmode
 set history=1000
 
@@ -27,10 +28,10 @@ map L $
 "-------------------------------------------------
 " Run/Debug action
 "-------------------------------------------------
-nnoremap <leader>r :action RunClass<cr>
-nnoremap <leader>R :action Run<cr>
-nnoremap <leader>d :action DebugClass<cr>
-nnoremap <leader>D :action Debug<cr>
+nnoremap <leader>R :action RunClass<cr>
+nnoremap <leader>r :action Run<cr>
+nnoremap <leader>D :action DebugClass<cr>
+nnoremap <leader>d :action Debug<cr>
 
 "-------------------------------------------------
 " g-Generate
@@ -45,3 +46,14 @@ nnoremap <space>gc :action GenerateConstructor<CR>
 nnoremap <space>G  :action Generate<CR>
 nnoremap <space>gi :action ImplementMethod<CR>
 nnoremap <space>go :action OverrideMethod<CR>
+
+"-------------------------------------------------
+" Windows action
+"-------------------------------------------------
+nnoremap <space>h :action VimWindowLeft<CR>
+nnoremap <space>l :action VimWindowRight<CR>
+nnoremap <space>q :action VimWindowClose<CR>
+nnoremap <space>mh :action MoveTabLeft<CR>
+nnoremap <space>ml :action MoveTabRight<CR>
+nnoremap <space>mg :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <space>u :action Unsplit<CR>
