@@ -52,8 +52,16 @@ nnoremap <space>go :action OverrideMethod<CR>
 "-------------------------------------------------
 nnoremap <space>h :action VimWindowLeft<CR>
 nnoremap <space>l :action VimWindowRight<CR>
-nnoremap <space>q :action VimWindowClose<CR>
 nnoremap <space>mh :action MoveTabLeft<CR>
 nnoremap <space>ml :action MoveTabRight<CR>
 nnoremap <space>mg :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <space>u :action Unsplit<CR>
+nnoremap <space>q :q<CR>
+nnoremap <leader>q :action VimWindowClose<CR>
+nnoremap <leader>k :action MethodUp<cr>
+nnoremap <leader>j :action MethodDown<cr>
+
+"-------------------------------------------------
+" Code refactoring
+"-------------------------------------------------
+nnoremap <space>rr :action RenameElement<cr>
