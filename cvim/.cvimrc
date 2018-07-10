@@ -10,20 +10,20 @@ let locale = "ru" " Current choices are 'jp' and 'uk'. This allows cVim to use s
 
 " let hintcharacters = "abc123" " set the default characters to be used in link hint mode default "asdfgqwertzxcvb"
 
-let searchengine dogpile = "http://www.dogpile.com/search/web?q=%s" " If you leave out the '%s' at the end of the URL,
+let searchengine yandex = "https://yandex.ru/search/?&text=%s" " If you leave out the '%s' at the end of the URL,
                                                                     " your query will be appended to the link.
                                                                     " Otherwise, your query will replace the '%s'.
 
 " This will do the same thing as above, except typing ':tabnew withbase' into to command bar
 " without any search parameters will open 'http://www.dogpile.com'
-let searchengine withbase = ["http://www.dogpile.com", "http://www.dogpile.com/search/web?q=%s"]
+let searchengine ya = ["http://www.yandex.ru", "https://yandex.ru/search/?&text=%s"]
 
 "alias ':g' to ':tabnew google'
 command g tabnew google
 " alias ':y' to ':tabnew yandex.ru'
 command y tabnew yandex.ru
 
-let completionengines = ["google", "youtube", "wikipedia"]
+let completionengines = ["yandex", "google", "youtube", "wikipedia"]
 
 let searchalias g = "google" " Create a shortcut for search engines.
                              " For example, typing ':tabnew g example'
