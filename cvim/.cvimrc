@@ -18,6 +18,9 @@ let searchengine yandex = "https://yandex.ru/search/?&text=%s" " If you leave ou
 " without any search parameters will open 'http://www.dogpile.com'
 let searchengine ya = ["http://www.yandex.ru", "https://yandex.ru/search/?&text=%s"]
 
+let searchengine translate = "http://translate.yandex.ru/?lang=en-ru&text=%s" 
+let searchengine tr = ["http://translate.yandex.ru", "http://translate.yandex.ru/?lang=en-ru&text=%s"]
+
 "alias ':g' to ':tabnew google'
 command g tabnew google
 " alias ':y' to ':tabnew yandex.ru'
