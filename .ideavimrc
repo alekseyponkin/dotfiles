@@ -34,7 +34,7 @@ nnoremap <leader>D :action DebugClass<cr>
 nnoremap <leader>d :action Debug<cr>
 
 "-------------------------------------------------
-" g-Generate
+" g-Generate action
 "-------------------------------------------------
 nnoremap <space>gt :action GenerateTestMethod<CR>
 nnoremap <space>gs :action GenerateSetUpMethod<CR>
@@ -62,7 +62,12 @@ nnoremap <leader>k :action MethodUp<cr>
 nnoremap <leader>j :action MethodDown<cr>
 
 "-------------------------------------------------
-" AceJump action
+" Code refactoring
+"-------------------------------------------------
+nnoremap <space>rr :action RenameElement<cr>
+
+"-------------------------------------------------
+" AceJump plugin 
 "-------------------------------------------------
 " Press `f` to activate AceJump
 map <leader>f :action AceAction<CR>
@@ -72,6 +77,6 @@ map <leader>F :action AceTargetAction<CR>
 map <leader>g :action AceLineAction<CR>
 
 "-------------------------------------------------
-" Code refactoring
+" CamelCase plugin 
 "-------------------------------------------------
-nnoremap <space>rr :action RenameElement<cr>
+map <space>ct :action de.netnexus.CamelCasePlugin.ToggleCamelCase<CR>
