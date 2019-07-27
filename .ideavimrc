@@ -15,7 +15,11 @@ set smartcase
 set numbers
 set relativenumber
 set showmode
-set history=1000
+set history=5000
+set surround
+set multiple-cursors
+set ideajoin
+set commentary
 
 "-------------------------------------------------
 " Navigation
