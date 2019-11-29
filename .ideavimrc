@@ -54,8 +54,8 @@ nnoremap <space>go :action OverrideMethod<CR>
 "-------------------------------------------------
 " Windows action
 "-------------------------------------------------
-nnoremap <space>h :action VimWindowLeft<CR>
-nnoremap <space>l :action VimWindowRight<CR>
+nnoremap <space>h <c-w>h
+nnoremap <space>l <c-w>l
 nnoremap <space>mh :action MoveTabLeft<CR>
 nnoremap <space>ml :action MoveTabRight<CR>
 nnoremap <space>mg :action MoveEditorToOppositeTabGroup<CR>

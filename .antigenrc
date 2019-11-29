@@ -26,6 +26,10 @@ antigen bundles <<EOBUNDLES
     # Extra zsh completions
     zsh-users/zsh-completions
 
+    tmux
+
+    docker
+
 EOBUNDLES
 
 # Load the theme.

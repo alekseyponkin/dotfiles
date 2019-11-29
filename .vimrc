@@ -29,6 +29,10 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
 Plug 'godlygeek/tabular'
 
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
 " Color schemes
 Plug 'altercation/vim-colors-solarized'
 "Plug 'morhetz/gruvbox'
@@ -65,7 +69,20 @@ set imsearch=0
 
 set encoding=utf-8
 set termencoding=utf-8
+set fileencodings=utf-8,cp1251
 
+"Disable swop and backup files
+set nobackup
+set nowritebackup
+set noswapfile
+
+"Clipboard system
+set clipboard^=unnamed,unnamedplus
+
+" Cursor settings
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
 "-------------------------------------------------
 "    Plugins settings
 "-------------------------------------------------
@@ -104,6 +121,11 @@ let g:airline#extensions#tabline#show_tab_nr = 1
 "-------------------------------------------------
 imap jj <Esc>
 
+map H ^
+map L $
+
+"Omni Completion
+inoremap <C-space> <C-x><C-o>
 
 " map <alt+n> to navigate through tabs
 for c in range(1, 9)
