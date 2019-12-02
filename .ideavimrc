@@ -1,7 +1,9 @@
 "-------------------------------------------------
 "    Emulating plugins 
 "-------------------------------------------------
+set multiple-cursors
 set surround
+set commentary
 
 "-------------------------------------------------
 "    Main settings
@@ -12,14 +14,14 @@ set scrolloff=3
 set incsearch
 set ignorecase
 set smartcase
-set numbers
+set number
 set relativenumber
 set showmode
-set history=5000
-set surround
-set multiple-cursors
 set ideajoin
-set commentary
+set idearefactormode=keep
+
+set history=5000
+set undolevels=10000
 
 "-------------------------------------------------
 " Navigation
@@ -54,6 +56,7 @@ nnoremap <space>go :action OverrideMethod<CR>
 "-------------------------------------------------
 " Windows action
 "-------------------------------------------------
+nnoremap <space>e :action RecentFiles<CR>
 nnoremap <space>h <c-w>h
 nnoremap <space>l <c-w>l
 nnoremap <space>mh :action MoveTabLeft<CR>
