@@ -21,13 +21,17 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'kien/ctrlp.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'rking/ag.vim'
+Plug 'rking/ag.vim', { 'on': 'Ag' }
 Plug 'matze/vim-move'
 Plug 'vim-syntastic/syntastic'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-surround'
+Plug 'terryma/vim-multiple-cursors'
+
+" Markdown
 Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown', {'for': 'markdown'}
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -92,6 +96,9 @@ map <C-n> :NERDTreeToggle<CR>
 
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
+
+" Ag
+nnoremap <C-f> :Ag -Q "
 
 " Move 
 let g:move_key_modifier = 'C'
