@@ -4,6 +4,9 @@
 set multiple-cursors
 set surround
 set commentary
+set ReplaceWithRegister
+set argtextobj
+set textobj-entire
 
 "-------------------------------------------------
 "    Main settings
@@ -57,6 +60,7 @@ nnoremap <space>go :action OverrideMethod<CR>
 " Windows action
 "-------------------------------------------------
 nnoremap <space>e :action RecentFiles<CR>
+nnoremap <space>s :action FileStructurePopup<CR>
 nnoremap <space>h <c-w>h
 nnoremap <space>l <c-w>l
 nnoremap <space>mh :action MoveTabLeft<CR>

@@ -1,9 +1,5 @@
 export TERM="xterm-256color"
 
-#Default editor
-export VISUAL=vim
-export EDITOR="$VISUAL"
-
 # ------------------------------------------------
 # Check if oh-my-zsh is installed
 if [[ ! -f ~/.oh-my-zsh/oh-my-zsh.sh ]]; then
@@ -163,7 +159,8 @@ source $ZSH/oh-my-zsh.sh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='mvim'
+  export VISUAL=vim
+  export EDITOR=$VISUAL
 fi
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
