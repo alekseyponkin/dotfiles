@@ -5,8 +5,16 @@ set multiple-cursors
 set surround
 set commentary
 set ReplaceWithRegister
-set argtextobj
 set textobj-entire
+"-------------------------------------------------
+" argtextobj plugin 
+set argtextobj
+let g:argtextobj_pairs="(:),{:},<:>"
+"-------------------------------------------------
+" highlightedyank plugin 
+set highlightedyank
+let g:highlightedyank_highlight_duration = "500"
+let g:highlightedyank_highlight_color = "rgba(255,92,17,155)"
 
 "-------------------------------------------------
 "    Main settings
