@@ -7,7 +7,7 @@ set commentary
 set ReplaceWithRegister
 set textobj-entire
 "-------------------------------------------------
-" argtextobj plugin 
+" argtextobj plugin
 set argtextobj
 let g:argtextobj_pairs="(:),{:},<:>"
 "-------------------------------------------------
@@ -68,7 +68,10 @@ nnoremap <space>go :action OverrideMethod<CR>
 " Windows action
 "-------------------------------------------------
 nnoremap <space>e :action RecentFiles<CR>
+nnoremap <space>E :action RecentLocations<CR>
 nnoremap <space>s :action FileStructurePopup<CR>
+nnoremap <space>b :action ShowBookmarks<CR>
+
 nnoremap <space>h <c-w>h
 nnoremap <space>l <c-w>l
 nnoremap <space>mh :action MoveTabLeft<CR>
@@ -77,8 +80,10 @@ nnoremap <space>mg :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <space>u :action Unsplit<CR>
 nnoremap <space>q :q<CR>
 nnoremap <leader>q :action VimWindowClose<CR>
-nnoremap <leader>k :action MethodUp<cr>
-nnoremap <leader>j :action MethodDown<cr>
+nnoremap <space>k :action MethodUp<cr>
+nnoremap <space>j :action MethodDown<cr>
+
+nnoremap <leader>a <Action>(Annotate)
 
 "-------------------------------------------------
 " Code refactoring
